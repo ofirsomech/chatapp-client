@@ -1,0 +1,23 @@
+.container-sender {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+.avatar-image-sender {
+    object-fit: cover;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+}
+
+.strong-user {
+    font-size: 13px;
+}
+
+.p-sender {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    max-height: 60%;
+}
