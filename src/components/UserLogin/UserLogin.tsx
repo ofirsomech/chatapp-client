@@ -5,18 +5,18 @@ import _ from "lodash";
 import { CommentOutlined } from "@ant-design/icons";
 
 type Props = {
-  setUser(user: string): void;
+  setName(name: string): void;
 };
 
 export function UserLogin(props: Props) {
-  const [user, setUser] = useState("");
+  const [name, setName] = useState("");
 
-  const handleSetUser = () => {
-    if (!user) {
+  const handleSetname = () => {
+    if (!name) {
       return;
     }
-    localStorage.setItem("user", user);
-    props.setUser(user);
+    localStorage.setItem("name", name);
+    props.setName(name);
     localStorage.setItem(
       "avatar",
       `https://picsum.photos/id/${_.random(1, 1000)}/200/300`
@@ -31,11 +31,13 @@ export function UserLogin(props: Props) {
       </h1>
       <input
         className="input-login"
-        value={user}
-        onChange={(e) => setUser(e.target.value)}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
         placeholder="What is your user name"
       />
-      <button className="button-login" onClick={() => handleSetUser()}></button>
+      <button className="button-login" onClick={() => handleSetname()}>
+        Login
+      </button>
     </div>
   );
 }

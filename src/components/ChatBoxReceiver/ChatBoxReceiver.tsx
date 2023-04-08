@@ -3,8 +3,9 @@ import { Avatar, Image } from "antd";
 
 interface Props {
   avatar: string;
-  user: string;
+  name?: string;
   message: string;
+  timestamps: string;
 }
 
 const ChatBoxReceiver = (props: Props) => {
@@ -17,9 +18,11 @@ const ChatBoxReceiver = (props: Props) => {
         }
       />
       <p>
-        <strong className="strong-user">{props.user}</strong>
-      <br></br>
-      {props.message}
+        <strong className="strong-user">
+          {props.name} - {props.timestamps}
+        </strong>
+        <br></br>
+        {props.message}
       </p>
     </div>
   );

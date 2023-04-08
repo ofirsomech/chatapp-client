@@ -28,6 +28,7 @@ export function InputText(props: Props) {
         placeholder="Write your message..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
+        onKeyDown={handleKeyDown}
       ></textarea>
       <button
         className="button"

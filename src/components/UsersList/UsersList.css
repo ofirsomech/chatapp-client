@@ -1,0 +1,15 @@
+.active-users {
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.active-user {
+    margin: 5px;
+    display: inline-block;
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 5px 10px;
+    white-space: nowrap;
+}
