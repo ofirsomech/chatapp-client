@@ -5,7 +5,7 @@ import _ from "lodash";
 import { CommentOutlined } from "@ant-design/icons";
 
 type Props = {
-  setName(name: string): void;
+  login(name: string): void;
 };
 
 export function UserLogin(props: Props) {
@@ -16,7 +16,7 @@ export function UserLogin(props: Props) {
       return;
     }
     localStorage.setItem("name", name);
-    props.setName(name);
+    props.login(name);
     localStorage.setItem(
       "avatar",
       `https://picsum.photos/id/${_.random(1, 1000)}/200/300`
