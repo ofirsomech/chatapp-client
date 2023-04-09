@@ -11,7 +11,8 @@ export function UsersList(props: Props) {
       <p>Online users:</p>
       {props.users.map((user) => (
         <div key={user} className="active-users">
-          {user}
+          <div>{user} </div>
+          <div className="active-dot"></div>
         </div>
       ))}
     </div>

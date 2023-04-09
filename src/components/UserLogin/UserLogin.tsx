@@ -1,7 +1,6 @@
 import "./UserLogin.css";
 import * as React from "react";
 import { useState } from "react";
-import _ from "lodash";
 import { CommentOutlined } from "@ant-design/icons";
 
 type Props = {

@@ -18,6 +18,7 @@ export function InputText(props: Props) {
   function handleKeyDown(event) {
     if (event.key === "Enter") {
       addMessage();
+      setMessage("");
     }
   }
 
@@ -31,7 +32,11 @@ export function InputText(props: Props) {
         onChange={(e) => setMessage(e.target.value)}
         onKeyDown={handleKeyDown}
       ></textarea>
-      <button className="button" onClick={() => addMessage()}>
+      <button
+        className="button"
+        onClick={() => addMessage()}
+        disabled={!message} // check if message is empty or null
+      >
         Send
       </button>
     </div>

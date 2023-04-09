@@ -1,43 +1,43 @@
 import "./ChatContainer.css";
 import * as React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Chat } from "../../models/Chat";
 import { formatDate } from "../../utilis/dates";
 import { InputText } from "../InputText/InputText";
-import { UserLogin } from "../UserLogin/UserLogin";
 import { UsersList } from "../UsersList/UsersList";
 import ChatBoxSender from "../ChatBoxSender/ChatBoxSender";
 import ChatBoxReceiver from "../ChatBoxReceiver/ChatBoxReceiver";
 import socketIo from "../../services/SocketService/SocketService";
 import { createMessage } from "../../services/ApiService/ApiService";
 
-type Props = {};
+type Props = { name: string; onLogout: () => void };
 
 export function ChatContainer(props: Props) {
+  const { name, onLogout } = props;
   const [chats, setChats] = useState<Chat[]>([]);
-  const [name, setName] = useState<string | null>(localStorage.getItem("name"));
   const [users, setUsers] = useState<string[]>([]);
+
+  useEffect(() => {
+    login(name)
+  }, [])
 
   const sendMessage = async (chat: Chat) => {
     await createMessage(chat);
   };
 
   const addMessage = async (message: string) => {
-    const newChat = { message, name: localStorage.getItem("name")! };
-    // @ts-ignore
-    setChats([...chats, newChat]);
+    const newChat:Chat = { message, name };
     await sendMessage(newChat);
   };
 
   function logout() {
     socketIo.disconnect();
     localStorage.removeItem("name");
-    setName("");
+    onLogout();
   }
 
   function login(name: string) {
     socketIo.connect(name, setChats, setUsers);
-    setName(name);
   }
 
   const ChatsList: any = () => {
@@ -65,19 +65,15 @@ export function ChatContainer(props: Props) {
   };
 
   // @ts-ignore
-  return name ? (
-    <div>
-      <UsersList users={users} />
-      <div className="chat-container">
-        <h4>Username: {name}</h4>
-        <p className="p-logout" onClick={() => logout()}>
-          Log out
-        </p>
-      </div>
-      <ChatsList />
-      <InputText addMessage={addMessage} />
+  return <div>
+    <UsersList users={users} />
+    <div className="chat-container">
+      <h4>Username: {name}</h4>
+      <p className="p-logout"  onClick={() => logout()}>
+        Log out
+      </p>
     </div>
-  ) : (
-    <UserLogin login={login} />
-  );
+    <ChatsList />
+    <InputText addMessage={addMessage} />
+  </div>
 }

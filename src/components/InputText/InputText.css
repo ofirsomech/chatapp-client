@@ -8,6 +8,11 @@
     border-width: 0;
     color:#fff
 }
+
+.button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
 .textarea{
     width: 60%;
     height: 50px;
