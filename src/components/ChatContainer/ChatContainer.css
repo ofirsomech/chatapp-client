@@ -8,3 +8,10 @@
     color: blue;
     cursor: pointer;
 }
+
+/* Media query for small screens */
+@media screen and (max-width: 600px) {
+    .chat-container {
+        flex-direction: column;
+    }
+}

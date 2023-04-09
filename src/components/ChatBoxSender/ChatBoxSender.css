@@ -14,3 +14,11 @@
     border-radius: 10px;
     max-height: 60%;
 }
+
+/* Media query for small screens */
+@media only screen and (max-width: 768px) {
+    .p-sender {
+        max-width: 80%;
+        max-height: none;
+    }
+}

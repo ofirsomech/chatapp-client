@@ -24,3 +24,16 @@
     font-size: 15px;
     padding-inline: 5px;
 }
+/* Media query for mobile devices */
+@media only screen and (max-width: 600px) {
+    .button-login {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .input-login {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+

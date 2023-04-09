@@ -26,3 +26,18 @@
     justify-content: space-evenly;
     align-items: center;
 }
+
+/* Media query for small screens */
+@media screen and (max-width: 600px) {
+    .button {
+        width: 30%;
+    }
+
+    .textarea {
+        width: 80%;
+    }
+
+    .text-container {
+        flex-direction: column;
+    }
+}
