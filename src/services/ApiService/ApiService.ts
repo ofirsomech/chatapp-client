@@ -1,12 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { Chat } from "../../models/Chat";
-
-export interface Message {
-  _id: string;
-  name: string;
-  message: string;
-  timestamp: Date;
-}
+import { Message } from "../../models/Message";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
