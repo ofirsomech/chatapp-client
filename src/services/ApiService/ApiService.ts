@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { Chat } from "../../components/ChatContainer/models/Chat";
+import { Chat } from "../../models/Chat";
 
 export interface Message {
   _id: string;
@@ -8,7 +8,7 @@ export interface Message {
   timestamp: Date;
 }
 
-const API_URL = "http://localhost:4000";
+const API_URL = process.env.REACT_APP_API_URL;
 
 export const getMessages = async (): Promise<Message[]> => {
   const response: AxiosResponse<Message[]> = await axios.get(`${API_URL}/chat`);

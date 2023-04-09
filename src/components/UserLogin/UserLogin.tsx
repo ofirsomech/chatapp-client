@@ -17,10 +17,6 @@ export function UserLogin(props: Props) {
     }
     localStorage.setItem("name", name);
     props.login(name);
-    localStorage.setItem(
-      "avatar",
-      `https://picsum.photos/id/${_.random(1, 1000)}/200/300`
-    );
   };
 
   return (

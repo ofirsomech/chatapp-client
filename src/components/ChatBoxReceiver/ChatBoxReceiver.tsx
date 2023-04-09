@@ -1,5 +1,4 @@
 import "./ChatBoxReceiver.css";
-import { Avatar, Image } from "antd";
 
 interface Props {
   name?: string;

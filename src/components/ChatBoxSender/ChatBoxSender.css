@@ -4,13 +4,6 @@
     flex-direction: row;
 }
 
-.avatar-image-sender {
-    object-fit: cover;
-    width: 45px;
-    height: 45px;
-    border-radius: 100%;
-}
-
 .strong-user {
     font-size: 13px;
 }

@@ -1,16 +1,15 @@
 import "./ChatContainer.css";
 import * as React from "react";
-
-import { useEffect, useState } from "react";
-import { UserLogin } from "../UserLogin/UserLogin";
-import ChatBoxReceiver from "../ChatBoxReceiver/ChatBoxReceiver";
-import ChatBoxSender from "../ChatBoxSender/ChatBoxSender";
-import { InputText } from "../InputText/InputText";
+import { useState } from "react";
+import { Chat } from "../../models/Chat";
 import { formatDate } from "../../utilis/dates";
-import { Chat } from "./models/Chat";
+import { InputText } from "../InputText/InputText";
+import { UserLogin } from "../UserLogin/UserLogin";
+import { UsersList } from "../UsersList/UsersList";
+import ChatBoxSender from "../ChatBoxSender/ChatBoxSender";
+import ChatBoxReceiver from "../ChatBoxReceiver/ChatBoxReceiver";
 import socketIo from "../../services/SocketService/SocketService";
 import { createMessage } from "../../services/ApiService/ApiService";
-import { UsersList } from "../UsersList/UsersList";
 
 type Props = {};
 
