@@ -8,6 +8,7 @@ type Props = {
 export function UsersList(props: Props): any {
   return (
     <div className="active-users">
+      <p>Online users:</p>
       {props.users.map((user) => (
         <div key={user} className="active-users">
           {user}

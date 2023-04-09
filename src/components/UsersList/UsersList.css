@@ -3,13 +3,27 @@
     padding: 10px;
     max-width: 100%;
     overflow-x: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .active-user {
     margin: 5px;
-    display: inline-block;
     background-color: #eee;
     border-radius: 5px;
     padding: 5px 10px;
     white-space: nowrap;
+    font-size: 14px;
+    min-width: 80px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+    .active-users {
+        justify-content: center;
+    }
 }

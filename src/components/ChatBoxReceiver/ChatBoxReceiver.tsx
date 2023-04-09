@@ -9,7 +9,7 @@ interface Props {
 const ChatBoxReceiver = (props: Props) => {
   return (
     <div className="container">
-      <p>
+      <p className="p-receiver">
         <strong className="strong-user">
           {props.name} - {props.timestamps}
         </strong>
