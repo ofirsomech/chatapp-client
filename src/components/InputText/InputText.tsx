@@ -14,7 +14,8 @@ export function InputText(props: Props) {
     setMessage("");
   }
 
-  function handleKeyDown(event: any) {
+  // @ts-ignore
+  function handleKeyDown(event) {
     if (event.key === "Enter") {
       addMessage();
     }
@@ -30,10 +31,7 @@ export function InputText(props: Props) {
         onChange={(e) => setMessage(e.target.value)}
         onKeyDown={handleKeyDown}
       ></textarea>
-      <button
-        className="button"
-        onClick={() => addMessage()}
-      >
+      <button className="button" onClick={() => addMessage()}>
         Send
       </button>
     </div>

@@ -15,15 +15,15 @@ type Props = {};
 
 export function ChatContainer(props: Props) {
   const [chats, setChats] = useState<Chat[]>([]);
-  const [name, setName] = useState(localStorage.getItem("name"));
-  const [users, setUsers] = useState([]);
+  const [name, setName] = useState<string | null>(localStorage.getItem("name"));
+  const [users, setUsers] = useState<string[]>([]);
 
-  const sendMessage = async (chat: any) => {
+  const sendMessage = async (chat: Chat) => {
     await createMessage(chat);
   };
 
-  const addMessage = async (message: any) => {
-    const newChat = { message, name: localStorage.getItem("name") };
+  const addMessage = async (message: string) => {
+    const newChat = { message, name: localStorage.getItem("name")! };
     // @ts-ignore
     setChats([...chats, newChat]);
     await sendMessage(newChat);

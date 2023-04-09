@@ -5,7 +5,7 @@ type Props = {
   users: string[];
 };
 
-export function UsersList(props: Props): any {
+export function UsersList(props: Props) {
   return (
     <div className="active-users">
       <p>Online users:</p>

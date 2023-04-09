@@ -1,3 +1,4 @@
+import React from "react";
 import { io, Socket } from "socket.io-client";
 import { Chat } from "../../models/Chat";
 
@@ -20,7 +21,11 @@ class SocketService {
     return this.socket;
   }
 
-  public connect(name: string, setChats: any, setUsers: any) {
+  public connect(
+    name: string,
+    setChats: React.Dispatch<React.SetStateAction<Chat[]>>,
+    setUsers: React.Dispatch<React.SetStateAction<string[]>>
+  ) {
     if (API_URL) {
       if (this.socket) {
         this.socket.connect();
@@ -30,7 +35,7 @@ class SocketService {
       this.socket.on("messages", (messages: Chat[]) => {
         setChats(messages);
       });
-      this.socket.on("activeUsers", (users: any[]) => {
+      this.socket.on("activeUsers", (users: string[]) => {
         setUsers(users.filter((u) => u !== name));
       });
       this.socket.emit("join", name);
@@ -38,8 +43,10 @@ class SocketService {
   }
 
   public disconnect() {
-    this.socket?.removeAllListeners();
-    return this.socket?.disconnect();
+    if (this.socket) {
+      this.socket.removeAllListeners();
+      return this.socket.disconnect();
+    }
   }
 }
 
